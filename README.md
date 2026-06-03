@@ -1,6 +1,6 @@
-# JMA Forecast Verification
+# Precipitation Verification Map (Non-official)
 
-This project is a statistical processing and data engineering demonstration for objectively verifying and visualizing the accuracy of Japan Meteorological Agency prefectural weather forecasts using observed values from AMeDAS stations.
+This project is a statistical processing and data engineering demonstration for objectively verifying and visualizing precipitation forecasts using observed values from AMeDAS stations. It is not an official JMA service.
 
 It aims to build a pipeline that parses JMAXML, the JMA Disaster Prevention Information XML format with a complex hierarchical structure, calculates regional precipitation forecast accuracy, and serves the results as static JSON data for an interactive map-based verification website.
 
@@ -8,7 +8,7 @@ It aims to build a pipeline that parses JMAXML, the JMA Disaster Prevention Info
 
 複雑な階層構造を持つ JMAXML（気象庁防災情報XML）をパースし、地域単位での降水適中率を算出するパイプライン（現在はJSONベースの静的配信）の構築、および地図上でのインタラクティブな精度評価の提供を目的としています。
 
-The site displays verification results for the next-day precipitation occurrence forecasts issued at 05:00, 11:00, and 17:00 each day. Results are shown by national summary, regional forecast area, and local forecast area on a map of Japan.
+The site displays the accuracy of next-day precipitation occurrence forecasts in the JMA prefectural weather forecasts issued at 05:00, 11:00, and 17:00 each day. Results are shown by national summary, regional forecast area, and local forecast area on a map of Japan.
 
 Published site files are under [`docs/`](docs/).
 
@@ -118,11 +118,6 @@ This means that if rain falls only in part of a forecast area, the accuracy does
 - 本サイトは研究・開発用のデモンストレーションであり、この予報精度に基づいた行動を前提としていません。
 - 利用者の生命・身体の安全や財産の保護に関する判断を目的とする利用には適しません。防災上の判断には気象庁の公式情報を参照してください。
 - 精度は随時変化し、予告なく提供を中止することがあります。
-
-## License
-- **Source Code**: This project is licensed under the [MIT License](LICENSE).
-- **Data & Contents**: The calculated forecast accuracy data and website contents are provided under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja) license.
-- **Data Source**: 気象庁防災情報XML履歴データベース（国立情報学研究所）のデータを加工して利用しています
 
 ## Author
 
