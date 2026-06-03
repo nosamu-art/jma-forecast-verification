@@ -1,0 +1,47 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # デフォルトブランチ（main）へのプッシュで自動実行
+  push:
+    branches: ["main"]
+
+  # Actionsタブから手動で実行することも可能に
+  workflow_dispatch:
+
+# GitHub Pagesへのデプロイに必要な権限を設定
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# デプロイの衝突を防ぐ設定（二重実行時は最新を優先）
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # デプロイ処理を行う単一のジョブ
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 【ここを変更】docs/ フォルダの中身だけをパッケージ化
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # リポジトリ全体（'.'）ではなく、docsフォルダを指定
+          path: './docs'
+
+      # パッケージ化したデータをGitHub Pagesにデプロイ
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # 安定性の高いv4のままでOKです
