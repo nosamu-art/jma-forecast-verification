@@ -258,6 +258,10 @@ select {
   min-height: calc(100vh - 98px);
 }
 
+.mobile-region-control {
+  display: none;
+}
+
 .map-shell {
   position: relative;
   height: calc(100vh - 134px);
@@ -287,6 +291,10 @@ select {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 8px 22px rgba(27, 38, 40, 0.12);
   font-size: 12px;
+}
+
+.legend-toggle {
+  display: none;
 }
 
 .legend-row {
@@ -564,6 +572,45 @@ select {
   font-size: 20px;
 }
 
+.selected-area-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+}
+
+.selected-toggle {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.selected-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.selected-zoom {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.selected-area-body {
+  display: grid;
+  gap: 10px;
+}
+
+.selected-area.is-collapsed {
+  gap: 0;
+}
+
+.selected-area.is-collapsed .selected-area-body {
+  display: none;
+}
+
 .selected-area dl {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -571,7 +618,7 @@ select {
   margin: 0;
 }
 
-.selected-area > div,
+.selected-area-head,
 .selected-area dl > div {
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -709,32 +756,160 @@ body.modal-open {
 
 @media (max-width: 560px) {
   .app-header {
-    padding: 18px 14px;
+    padding: 14px 12px;
+    gap: 14px;
   }
 
   h1 {
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .layout {
-    padding: 12px;
+    gap: 12px;
+    padding: 10px;
   }
 
-  .controls,
-  .metric-grid,
-  .selected-area dl {
+  .mobile-region-control {
+    display: block;
+    padding: 0 10px;
+  }
+
+  .controls {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .controls label:not(:first-child) {
+    display: none;
+  }
+
+  select {
+    min-height: 38px;
+    padding: 0 8px;
+    font-size: 13px;
   }
 
   .map-shell,
   #map {
-    height: 520px;
-    min-height: 480px;
+    height: min(68vh, 640px);
+    min-height: 520px;
+  }
+
+  .legend {
+    left: 10px;
+    top: 10px;
+    bottom: auto;
+    min-width: 132px;
+    gap: 4px;
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .legend-toggle {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 510;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--accent-strong);
+    font: inherit;
+    font-weight: 800;
+    box-shadow: 0 8px 22px rgba(27, 38, 40, 0.12);
+  }
+
+  .legend:not(.is-open) {
+    display: none;
+  }
+
+  .legend.is-open {
+    top: 52px;
   }
 
   .map-detail {
+    left: 10px;
+    right: 10px;
+    top: 52%;
+    bottom: 12px;
+    width: auto;
+    max-height: none;
+    padding: 10px;
+    overflow: visible;
+  }
+
+  .map-detail.is-expanded {
+    top: 26%;
+    overflow: auto;
+  }
+
+  .map-detail.is-collapsed {
     top: auto;
-    bottom: 84px;
-    max-height: 240px;
+    bottom: 12px;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .selected-area h3 {
+    font-size: 17px;
+  }
+
+  .selected-area p {
+    font-size: 11px;
+  }
+
+  .selected-area dl {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .selected-area .metric-cell {
+    padding: 7px;
+  }
+
+  .selected-area .metric-cell span {
+    font-size: 11px;
+  }
+
+  .selected-area .metric-cell strong {
+    font-size: 15px;
+  }
+
+  .map-detail .time-chart {
+    display: none;
+    margin-top: 0;
+  }
+
+  .map-detail.is-expanded .time-chart {
+    display: block;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summary-block h2 {
+    font-size: 34px;
+  }
+
+  .region-ranking-section,
+  .area-ranking-section {
+    display: none;
+  }
+
+  .rank-row,
+  .area-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .row-value {
+    font-size: 16px;
   }
 }

@@ -50,8 +50,15 @@
       <section class="map-shell" aria-label="日本地図">
         <div id="map"></div>
         <div id="selectedArea" class="selected-area map-detail"></div>
+        <button id="legendToggle" class="legend-toggle" type="button" aria-label="Show legend" aria-expanded="false">L</button>
         <div class="legend" id="legend"></div>
       </section>
+      <div class="mobile-region-control">
+        <label>
+          <span data-i18n="label_region">Region</span>
+          <select id="mobileRegionSelect"></select>
+        </label>
+      </div>
 
       <aside class="panel" aria-label="検証結果">
         <section class="summary-block">
@@ -61,7 +68,7 @@
           <div class="metric-grid" id="overallMetrics"></div>
         </section>
 
-        <section>
+        <section class="region-ranking-section">
           <div class="section-head">
             <p class="section-label" data-i18n="section_regions">Region Forecast Areas</p>
             <span id="regionCount"></span>
@@ -69,7 +76,7 @@
           <div class="rank-list" id="regionList"></div>
         </section>
 
-        <section>
+        <section class="area-ranking-section">
           <div class="section-head">
             <p class="section-label" data-i18n="section_areas">Local Area Ranking</p>
             <span id="areaCount"></span>

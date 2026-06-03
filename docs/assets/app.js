@@ -44,6 +44,8 @@ const TRANSLATIONS = {
       "It is not suitable for decisions related to safety or property protection. Please use official JMA information for disaster prevention decisions.",
     notice_4: "Accuracy changes over time, and the service may be discontinued without notice.",
     data_nodata: "No data",
+    legend_show: "Show legend",
+    legend_hide: "Hide legend",
     overall_title: "National",
     region_title: "Region Forecast Areas",
     area_title: "Local Area Ranking",
@@ -64,6 +66,10 @@ const TRANSLATIONS = {
     selected_rep: "Representative station",
     selected_region: "Region",
     selected_metric: "Metric",
+    selected_collapse: "Minimize details",
+    selected_expand: "Show details",
+    selected_zoom_in: "Expand details",
+    selected_zoom_out: "Compact details",
     selected_miss: "Miss rate",
     selected_false: "False alarm rate",
     selected_capture: "Capture rate",
@@ -112,6 +118,8 @@ const TRANSLATIONS = {
     notice_3: "利用者の生命・身体の安全や財産の保護に関する判断を目的とする利用には適しません。防災上の判断には気象庁の公式情報を参照してください。",
     notice_4: "精度は随時変化し、予告なく提供を中止することがあります。",
     data_nodata: "データなし",
+    legend_show: "凡例を表示",
+    legend_hide: "凡例を閉じる",
     overall_title: "全国",
     region_title: "地方予報区",
     area_title: "一次細分区域ランキング",
@@ -132,6 +140,10 @@ const TRANSLATIONS = {
     selected_rep: "代表地点",
     selected_region: "地方",
     selected_metric: "指標",
+    selected_collapse: "詳細を最小化",
+    selected_expand: "詳細を表示",
+    selected_zoom_in: "詳細を拡大",
+    selected_zoom_out: "詳細をコンパクト表示",
     selected_miss: "見逃し率",
     selected_false: "空振り率",
     selected_capture: "捕捉率",
@@ -154,6 +166,8 @@ const state = {
   region: "all",
   lang: "en",
   selectedAreaCode: null,
+  selectedAreaCollapsed: false,
+  selectedAreaExpanded: false,
   map: null,
   markerLayer: null,
 };
@@ -163,6 +177,7 @@ const els = {
   timeSelect: document.getElementById("timeSelect"),
   metricSelect: document.getElementById("metricSelect"),
   regionSelect: document.getElementById("regionSelect"),
+  mobileRegionSelect: document.getElementById("mobileRegionSelect"),
   methodologyOpen: document.getElementById("methodologyOpen"),
   methodologyModal: document.getElementById("methodologyModal"),
   methodologyClose: document.getElementById("methodologyClose"),
@@ -177,6 +192,7 @@ const els = {
   areaCount: document.getElementById("areaCount"),
   selectedArea: document.getElementById("selectedArea"),
   legend: document.getElementById("legend"),
+  legendToggle: document.getElementById("legendToggle"),
 };
 
 function metricMeta(key = state.metric) {
@@ -438,14 +454,17 @@ function populateRegions() {
   const regions = [...new Set(state.areas.map((area) => area.region_name))].sort(
     (a, b) => regionSortKey(a) - regionSortKey(b),
   );
-  els.regionSelect.innerHTML = [
+  const regionOptions = [
     `<option value="all">${t("region_all")}</option>`,
     ...regions.map((region) => `<option value="${region}">${region}</option>`),
   ].join("");
+  els.regionSelect.innerHTML = regionOptions;
+  els.mobileRegionSelect.innerHTML = regionOptions;
   if (stored.region && (stored.region === "all" || regions.includes(stored.region))) {
     state.region = stored.region;
   }
   els.regionSelect.value = state.region;
+  els.mobileRegionSelect.value = state.region;
 }
 
 function regionAreaCounts() {
@@ -603,6 +622,9 @@ function renderLegend() {
     ),
     `<div class="legend-row"><span class="swatch" style="background:#9aa6ab"></span><span>${t("data_nodata")}</span></div>`,
   ].join("");
+  if (els.legendToggle) {
+    els.legendToggle.setAttribute("aria-label", els.legend.classList.contains("is-open") ? t("legend_hide") : t("legend_show"));
+  }
 }
 
 function renderMap() {
@@ -627,6 +649,8 @@ function renderMap() {
     `);
     marker.on("click", () => {
       state.selectedAreaCode = row.area_code;
+      state.selectedAreaCollapsed = false;
+      state.selectedAreaExpanded = false;
       state.map.panTo([row.lat, row.lng], { animate: true });
       renderAll(false);
     });
@@ -696,10 +720,20 @@ function renderRegions() {
     row.addEventListener("click", () => {
       state.region = state.region === row.dataset.region ? "all" : row.dataset.region;
       els.regionSelect.value = state.region;
+      els.mobileRegionSelect.value = state.region;
       state.selectedAreaCode = null;
       renderAll();
     });
   });
+}
+
+function selectRegion(region) {
+  state.region = region;
+  els.regionSelect.value = region;
+  els.mobileRegionSelect.value = region;
+  state.selectedAreaCode = null;
+  saveStoredState();
+  renderAll();
 }
 
 function selectedAreaRow(rows) {
@@ -730,15 +764,29 @@ function renderSelectedArea(row, rows) {
     return;
   }
   const chartRows = issueTimeRows("areas", (item) => item.area_code === row.area_code);
+  els.selectedArea.classList.toggle("is-collapsed", state.selectedAreaCollapsed);
+  els.selectedArea.classList.toggle("is-expanded", state.selectedAreaExpanded);
   els.selectedArea.innerHTML = `
-    <div>
-      <h3>${row.area_name}</h3>
-      <p>${row.region_name} / ${t("selected_rep")}: ${row.station_name}</p>
+    <div class="selected-area-head">
+      <div>
+        <h3>${row.area_name}</h3>
+        <p>${row.region_name} / ${t("selected_rep")}: ${row.station_name}</p>
+      </div>
+      <div class="selected-actions">
+        <button class="icon-button selected-zoom" type="button" aria-label="${state.selectedAreaExpanded ? t("selected_zoom_out") : t("selected_zoom_in")}" aria-pressed="${state.selectedAreaExpanded}">
+          ${state.selectedAreaExpanded ? "□" : "↗"}
+        </button>
+        <button class="icon-button selected-toggle" type="button" aria-label="${state.selectedAreaCollapsed ? t("selected_expand") : t("selected_collapse")}" aria-expanded="${!state.selectedAreaCollapsed}">
+          ${state.selectedAreaCollapsed ? "+" : "−"}
+        </button>
+      </div>
     </div>
-    <dl>
-      ${DISPLAY_METRIC_KEYS.map((key) => renderMetricCard(key, row[key])).join("")}
-    </dl>
-    ${renderTimeChart(chartRows)}
+    <div class="selected-area-body">
+      <dl>
+        ${DISPLAY_METRIC_KEYS.map((key) => renderMetricCard(key, row[key])).join("")}
+      </dl>
+      ${renderTimeChart(chartRows)}
+    </div>
   `;
 }
 
@@ -768,6 +816,8 @@ function renderAreas() {
   els.areaTable.querySelectorAll(".area-row").forEach((row) => {
     row.addEventListener("click", () => {
       state.selectedAreaCode = row.dataset.areaCode;
+      state.selectedAreaCollapsed = false;
+      state.selectedAreaExpanded = false;
       const selected = enrichedAreas().find((area) => area.area_code === state.selectedAreaCode);
       if (selected) {
         state.map.panTo([selected.lat, selected.lng], { animate: true });
@@ -827,9 +877,11 @@ function attachEvents() {
   });
 
   els.regionSelect.addEventListener("change", () => {
-    state.region = els.regionSelect.value;
-    saveStoredState();
-    renderAll();
+    selectRegion(els.regionSelect.value);
+  });
+
+  els.mobileRegionSelect.addEventListener("change", () => {
+    selectRegion(els.mobileRegionSelect.value);
   });
 
   els.overallMetrics.addEventListener("click", handleMetricCardAction);
@@ -840,6 +892,30 @@ function attachEvents() {
   els.selectedArea.addEventListener("keydown", handleMetricCardKeydown);
   els.selectedArea.addEventListener("click", handleTimeBarAction);
   els.selectedArea.addEventListener("keydown", handleTimeBarKeydown);
+  els.selectedArea.addEventListener("click", (event) => {
+    if (!event.target.closest(".selected-toggle")) {
+      return;
+    }
+    state.selectedAreaCollapsed = !state.selectedAreaCollapsed;
+    if (state.selectedAreaCollapsed) {
+      state.selectedAreaExpanded = false;
+    }
+    renderAll(false);
+  });
+  els.selectedArea.addEventListener("click", (event) => {
+    if (!event.target.closest(".selected-zoom")) {
+      return;
+    }
+    state.selectedAreaCollapsed = false;
+    state.selectedAreaExpanded = !state.selectedAreaExpanded;
+    renderAll(false);
+  });
+
+  els.legendToggle.addEventListener("click", () => {
+    const isOpen = els.legend.classList.toggle("is-open");
+    els.legendToggle.setAttribute("aria-expanded", String(isOpen));
+    els.legendToggle.setAttribute("aria-label", isOpen ? t("legend_hide") : t("legend_show"));
+  });
 }
 
 async function init() {
