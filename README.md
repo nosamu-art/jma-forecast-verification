@@ -119,6 +119,11 @@ This means that if rain falls only in part of a forecast area, the accuracy does
 - 利用者の生命・身体の安全や財産の保護に関する判断を目的とする利用には適しません。防災上の判断には気象庁の公式情報を参照してください。
 - 精度は随時変化し、予告なく提供を中止することがあります。
 
+## License
+- **Source Code**: This project is licensed under the [MIT License](LICENSE).
+- **Data & Contents**: The calculated forecast accuracy data and website contents are provided under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja) license.
+- **Data Source**: 気象庁防災情報XML履歴データベース（国立情報学研究所）のデータを加工して利用しています
+
 ## Author
 
 - Created by: Osamu
