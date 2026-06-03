@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Precipitation Verification Map</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <div class="header-topline">
+          <p class="eyebrow">JMA Forecast Verification</p>
+        </div>
+        <div class="title-row">
+          <h1 data-i18n="page_title">Precipitation Verification Map</h1>
+          <button id="methodologyOpen" class="info-button" type="button" aria-label="Show methodology and usage notes">i</button>
+          <button id="languageToggle" class="info-button lang-button" type="button" aria-label="Switch language">JP</button>
+        </div>
+        <p class="page-notice" data-i18n="page_notice">
+          This site is for demonstration purposes. For disaster prevention decisions, refer to official JMA information. Accuracy may change over time and service may be discontinued without notice. It displays next-day precipitation occurrence in the prefectural weather forecasts issued at 05:00, 11:00, and 17:00 each day.
+        </p>
+      </div>
+      <div class="controls" aria-label="Display controls">
+        <label>
+          <span data-i18n="label_month">Month</span>
+          <select id="monthSelect"></select>
+        </label>
+        <label>
+          <span data-i18n="label_time">Time</span>
+          <select id="timeSelect"></select>
+        </label>
+        <label>
+          <span data-i18n="label_metric">Metric</span>
+          <select id="metricSelect"></select>
+        </label>
+        <label>
+          <span data-i18n="label_region">Region</span>
+          <select id="regionSelect"></select>
+        </label>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="map-shell" aria-label="日本地図">
+        <div id="map"></div>
+        <div id="selectedArea" class="selected-area map-detail"></div>
+        <div class="legend" id="legend"></div>
+      </section>
+
+      <aside class="panel" aria-label="検証結果">
+        <section class="summary-block">
+          <p class="section-label" data-i18n="section_national">National</p>
+          <h2 id="overallValue">--</h2>
+          <p id="overallMeta">--</p>
+          <div class="metric-grid" id="overallMetrics"></div>
+        </section>
+
+        <section>
+          <div class="section-head">
+            <p class="section-label" data-i18n="section_regions">Region Forecast Areas</p>
+            <span id="regionCount"></span>
+          </div>
+          <div class="rank-list" id="regionList"></div>
+        </section>
+
+        <section>
+          <div class="section-head">
+            <p class="section-label" data-i18n="section_areas">Local Area Ranking</p>
+            <span id="areaCount"></span>
+          </div>
+          <div class="area-table" id="areaTable"></div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="app-footer">
+      <span data-i18n="footer">Data Source &amp; Methodology: Weather Forecasts: <a href="https://agora.ex.nii.ac.jp/cps/weather/report/" target="_blank" rel="noreferrer">JMA Disaster Prevention Information XML History Database</a> (Provided by National Institute of Informatics) / Observations: JMA AMeDAS Daily Data / Processing: All verification scores are independently calculated by this system using the above data sources under <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noreferrer">CC BY 4.0</a>.</span>
+    </footer>
+
+    <div id="methodologyModal" class="modal" hidden>
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="methodologyTitle">
+        <div class="modal-header">
+          <h2 id="methodologyTitle" data-i18n="methodology_title">Methodology and Usage Notes</h2>
+          <button id="methodologyClose" class="icon-button" type="button" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+          <section>
+            <h3 data-i18n="m1_title">1. Precipitation Threshold</h3>
+            <p data-i18n="m1_body">This site classifies precipitation status using AMeDAS observations and the following threshold.</p>
+            <ul>
+              <li data-i18n="m1_yes">Precipitation present: daily precipitation is 1.0 mm or more.</li>
+              <li data-i18n="m1_no">Precipitation absent: daily precipitation is less than 1.0 mm.</li>
+            </ul>
+            <p data-i18n="m1_diff">Under JMA's standard, snow is treated as precipitation at 0.5 mm or more. This site uses 1.0 mm for all precipitation events because of data acquisition constraints, so the official accuracy values may differ slightly.</p>
+          </section>
+          <section>
+            <h3 data-i18n="m2_title">2. Forecasts and Time Window</h3>
+            <p data-i18n="m2_body">The site verifies next-day forecasts in the prefectural weather forecasts issued at the following times.</p>
+            <ul>
+              <li data-i18n="m2_times">Issuance times: 05:00, 11:00, and 17:00 every day.</li>
+              <li data-i18n="m2_window">Verification window: 00:00 to 24:00 on the day after issuance.</li>
+            </ul>
+            <p data-i18n="m2_extra">In addition to JMA's regular verification at 05:00 and 17:00, this site also includes the next-day forecast contained in the 11:00 bulletin for a broader assessment.</p>
+          </section>
+          <section>
+            <h3 data-i18n="m3_title">3. Spatial Aggregation</h3>
+            <p data-i18n="m3_body">The accuracy calculation follows JMA's objective verification method.</p>
+            <ul>
+              <li data-i18n="m3_unit">Aggregation unit: local forecast area (e.g. Tokyo, southern Hyogo).</li>
+              <li data-i18n="m3_logic">Method: each AMeDAS station within a local forecast area is judged individually, and the results are averaged to obtain the area's accuracy score.</li>
+            </ul>
+            <p data-i18n="m3_effect">This means that if rain falls only in part of a forecast area, the accuracy does not become 100%, which matches lived experience more closely.</p>
+          </section>
+          <section>
+            <h3 data-i18n="notice_title">Notes</h3>
+            <ul>
+              <li data-i18n="notice_1">This site is for demonstration purposes. For disaster prevention decisions, refer to official JMA information.</li>
+              <li data-i18n="notice_2">This site is a research and development demonstration and is not intended for actions based on its forecast accuracy.</li>
+              <li data-i18n="notice_3">It is not suitable for decisions related to safety or property protection. Please use official JMA information for disaster prevention decisions.</li>
+              <li data-i18n="notice_4">Accuracy changes over time, and the service may be discontinued without notice.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Author</h3>
+            <ul>
+              <li>Created by: Osamu</li>
+              <li>Source Code: <a href="https://github.com/nosamu-art/jma-forecast-verification" target="_blank" rel="noreferrer">nosamu-art/jma-forecast-verification</a></li>
+              <li>Contact: <a href="https://www.linkedin.com/in/osamu-nishimoto-8a687440b" target="_blank" rel="noreferrer">linkedin.com/in/osamu-nishimoto-8a687440b</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>

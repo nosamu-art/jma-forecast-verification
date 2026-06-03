@@ -1,0 +1,1422 @@
+[
+  {
+    "area_code": "330020",
+    "area_name": "岡山県北部",
+    "region_name": "中国地方",
+    "station_code": "66186",
+    "station_name": "津山",
+    "amedas_name": "津山",
+    "lat": 35.063333,
+    "lng": 134.008333
+  },
+  {
+    "area_code": "330010",
+    "area_name": "岡山県南部",
+    "region_name": "中国地方",
+    "station_code": "66408",
+    "station_name": "岡山",
+    "amedas_name": "岡山",
+    "lat": 34.685,
+    "lng": 133.925
+  },
+  {
+    "area_code": "320010",
+    "area_name": "島根県東部",
+    "region_name": "中国地方",
+    "station_code": "68132",
+    "station_name": "松江",
+    "amedas_name": "松江",
+    "lat": 35.456667,
+    "lng": 133.065
+  },
+  {
+    "area_code": "320020",
+    "area_name": "島根県西部",
+    "region_name": "中国地方",
+    "station_code": "68376",
+    "station_name": "浜田",
+    "amedas_name": "浜田",
+    "lat": 34.896667,
+    "lng": 132.07
+  },
+  {
+    "area_code": "320030",
+    "area_name": "島根県隠岐",
+    "region_name": "中国地方",
+    "station_code": "68022",
+    "station_name": "西郷",
+    "amedas_name": "西郷",
+    "lat": 36.203333,
+    "lng": 133.333333
+  },
+  {
+    "area_code": "340020",
+    "area_name": "広島県北部",
+    "region_name": "中国地方",
+    "station_code": "67116",
+    "station_name": "庄原",
+    "amedas_name": "庄原",
+    "lat": 34.86,
+    "lng": 133.023333
+  },
+  {
+    "area_code": "340010",
+    "area_name": "広島県南部",
+    "region_name": "中国地方",
+    "station_code": "67437",
+    "station_name": "広島",
+    "amedas_name": "広島",
+    "lat": 34.398333,
+    "lng": 132.461667
+  },
+  {
+    "area_code": "310020",
+    "area_name": "鳥取県中・西部",
+    "region_name": "中国地方",
+    "station_code": "69076",
+    "station_name": "米子",
+    "amedas_name": "米子",
+    "lat": 35.433333,
+    "lng": 133.338333
+  },
+  {
+    "area_code": "310010",
+    "area_name": "鳥取県東部",
+    "region_name": "中国地方",
+    "station_code": "69122",
+    "station_name": "鳥取",
+    "amedas_name": "鳥取",
+    "lat": 35.486667,
+    "lng": 134.238333
+  },
+  {
+    "area_code": "410020",
+    "area_name": "佐賀県北部",
+    "region_name": "九州北部地方",
+    "station_code": "85116",
+    "station_name": "伊万里",
+    "amedas_name": "伊万里",
+    "lat": 33.266667,
+    "lng": 129.878333
+  },
+  {
+    "area_code": "410010",
+    "area_name": "佐賀県南部",
+    "region_name": "九州北部地方",
+    "station_code": "85142",
+    "station_name": "佐賀",
+    "amedas_name": "佐賀",
+    "lat": 33.265,
+    "lng": 130.305
+  },
+  {
+    "area_code": "440010",
+    "area_name": "大分県中部",
+    "region_name": "九州北部地方",
+    "station_code": "83216",
+    "station_name": "大分",
+    "amedas_name": "大分",
+    "lat": 33.235,
+    "lng": 131.618333
+  },
+  {
+    "area_code": "440020",
+    "area_name": "大分県北部",
+    "region_name": "九州北部地方",
+    "station_code": "83051",
+    "station_name": "中津",
+    "amedas_name": "中津",
+    "lat": 33.586667,
+    "lng": 131.245
+  },
+  {
+    "area_code": "440040",
+    "area_name": "大分県南部",
+    "region_name": "九州北部地方",
+    "station_code": "83401",
+    "station_name": "佐伯",
+    "amedas_name": "佐伯",
+    "lat": 32.95,
+    "lng": 131.901667
+  },
+  {
+    "area_code": "440030",
+    "area_name": "大分県西部",
+    "region_name": "九州北部地方",
+    "station_code": "83137",
+    "station_name": "日田",
+    "amedas_name": "日田",
+    "lat": 33.321667,
+    "lng": 130.928333
+  },
+  {
+    "area_code": "350020",
+    "area_name": "山口県中部",
+    "region_name": "九州北部地方",
+    "station_code": "81286",
+    "station_name": "山口",
+    "amedas_name": "山口",
+    "lat": 34.161667,
+    "lng": 131.461667
+  },
+  {
+    "area_code": "350040",
+    "area_name": "山口県北部",
+    "region_name": "九州北部地方",
+    "station_code": "81071",
+    "station_name": "萩",
+    "amedas_name": "萩",
+    "lat": 34.41,
+    "lng": 131.405
+  },
+  {
+    "area_code": "350030",
+    "area_name": "山口県東部",
+    "region_name": "九州北部地方",
+    "station_code": "81481",
+    "station_name": "柳井",
+    "amedas_name": "柳井",
+    "lat": 33.958333,
+    "lng": 132.113333
+  },
+  {
+    "area_code": "350010",
+    "area_name": "山口県西部",
+    "region_name": "九州北部地方",
+    "station_code": "81428",
+    "station_name": "下関",
+    "amedas_name": "下関",
+    "lat": 33.948333,
+    "lng": 130.925
+  },
+  {
+    "area_code": "430030",
+    "area_name": "熊本県天草・芦北地方",
+    "region_name": "九州北部地方",
+    "station_code": "86491",
+    "station_name": "牛深",
+    "amedas_name": "牛深",
+    "lat": 32.196667,
+    "lng": 130.026667
+  },
+  {
+    "area_code": "430010",
+    "area_name": "熊本県熊本地方",
+    "region_name": "九州北部地方",
+    "station_code": "86141",
+    "station_name": "熊本",
+    "amedas_name": "熊本",
+    "lat": 32.813333,
+    "lng": 130.706667
+  },
+  {
+    "area_code": "430040",
+    "area_name": "熊本県球磨地方",
+    "region_name": "九州北部地方",
+    "station_code": "86467",
+    "station_name": "人吉",
+    "amedas_name": "人吉",
+    "lat": 32.216667,
+    "lng": 130.755
+  },
+  {
+    "area_code": "430020",
+    "area_name": "熊本県阿蘇地方",
+    "region_name": "九州北部地方",
+    "station_code": "86111",
+    "station_name": "阿蘇乙姫",
+    "amedas_name": "阿蘇乙姫",
+    "lat": 32.946667,
+    "lng": 131.04
+  },
+  {
+    "area_code": "400020",
+    "area_name": "福岡県北九州地方",
+    "region_name": "九州北部地方",
+    "station_code": "82056",
+    "station_name": "八幡",
+    "amedas_name": "八幡",
+    "lat": 33.851667,
+    "lng": 130.743333
+  },
+  {
+    "area_code": "400010",
+    "area_name": "福岡県福岡地方",
+    "region_name": "九州北部地方",
+    "station_code": "82182",
+    "station_name": "福岡",
+    "amedas_name": "福岡",
+    "lat": 33.581667,
+    "lng": 130.375
+  },
+  {
+    "area_code": "400040",
+    "area_name": "福岡県筑後地方",
+    "region_name": "九州北部地方",
+    "station_code": "82306",
+    "station_name": "久留米",
+    "amedas_name": "久留米",
+    "lat": 33.303333,
+    "lng": 130.493333
+  },
+  {
+    "area_code": "400030",
+    "area_name": "福岡県筑豊地方",
+    "region_name": "九州北部地方",
+    "station_code": "82136",
+    "station_name": "飯塚",
+    "amedas_name": "飯塚",
+    "lat": 33.651667,
+    "lng": 130.693333
+  },
+  {
+    "area_code": "420040",
+    "area_name": "長崎県五島",
+    "region_name": "九州北部地方",
+    "station_code": "84536",
+    "station_name": "福江",
+    "amedas_name": "福江",
+    "lat": 32.693333,
+    "lng": 128.826667
+  },
+  {
+    "area_code": "420020",
+    "area_name": "長崎県北部",
+    "region_name": "九州北部地方",
+    "station_code": "84266",
+    "station_name": "佐世保",
+    "amedas_name": "佐世保",
+    "lat": 33.158333,
+    "lng": 129.726667
+  },
+  {
+    "area_code": "420010",
+    "area_name": "長崎県南部",
+    "region_name": "九州北部地方",
+    "station_code": "84496",
+    "station_name": "長崎",
+    "amedas_name": "長崎",
+    "lat": 32.733333,
+    "lng": 129.866667
+  },
+  {
+    "area_code": "420030",
+    "area_name": "長崎県壱岐・対馬",
+    "region_name": "九州北部地方",
+    "station_code": "84072",
+    "station_name": "厳原",
+    "amedas_name": "厳原",
+    "lat": 34.196667,
+    "lng": 129.291667
+  },
+  {
+    "area_code": "450040",
+    "area_name": "宮崎県北部山沿い",
+    "region_name": "九州南部地方",
+    "station_code": "87041",
+    "station_name": "高千穂",
+    "amedas_name": "高千穂",
+    "lat": 32.711667,
+    "lng": 131.29
+  },
+  {
+    "area_code": "450020",
+    "area_name": "宮崎県北部平野部",
+    "region_name": "九州南部地方",
+    "station_code": "87141",
+    "station_name": "延岡",
+    "amedas_name": "延岡",
+    "lat": 32.581667,
+    "lng": 131.656667
+  },
+  {
+    "area_code": "450030",
+    "area_name": "宮崎県南部山沿い",
+    "region_name": "九州南部地方",
+    "station_code": "87426",
+    "station_name": "都城",
+    "amedas_name": "都城",
+    "lat": 31.73,
+    "lng": 131.081667
+  },
+  {
+    "area_code": "450010",
+    "area_name": "宮崎県南部平野部",
+    "region_name": "九州南部地方",
+    "station_code": "87376",
+    "station_name": "宮崎",
+    "amedas_name": "宮崎",
+    "lat": 31.938333,
+    "lng": 131.413333
+  },
+  {
+    "area_code": "460020",
+    "area_name": "鹿児島県大隅地方",
+    "region_name": "九州南部地方",
+    "station_code": "88442",
+    "station_name": "鹿屋",
+    "amedas_name": "鹿屋",
+    "lat": 31.391667,
+    "lng": 130.863333
+  },
+  {
+    "area_code": "460040",
+    "area_name": "鹿児島県奄美地方",
+    "region_name": "九州南部地方",
+    "station_code": "88837",
+    "station_name": "名瀬",
+    "amedas_name": "名瀬",
+    "lat": 28.385,
+    "lng": 129.493333
+  },
+  {
+    "area_code": "460030",
+    "area_name": "鹿児島県種子島・屋久島地方",
+    "region_name": "九州南部地方",
+    "station_code": "88612",
+    "station_name": "種子島",
+    "amedas_name": "種子島",
+    "lat": 30.72,
+    "lng": 130.981667
+  },
+  {
+    "area_code": "460010",
+    "area_name": "鹿児島県薩摩地方",
+    "region_name": "九州南部地方",
+    "station_code": "88317",
+    "station_name": "鹿児島",
+    "amedas_name": "鹿児島",
+    "lat": 31.555,
+    "lng": 130.546667
+  },
+  {
+    "area_code": "12010",
+    "area_name": "上川地方",
+    "region_name": "北海道地方",
+    "station_code": "12442",
+    "station_name": "旭川",
+    "amedas_name": "旭川",
+    "lat": 43.756667,
+    "lng": 142.371667
+  },
+  {
+    "area_code": "13020",
+    "area_name": "北見地方",
+    "region_name": "北海道地方",
+    "station_code": "17521",
+    "station_name": "北見",
+    "amedas_name": "北見",
+    "lat": 43.776667,
+    "lng": 143.841667
+  },
+  {
+    "area_code": "14030",
+    "area_name": "十勝地方",
+    "region_name": "北海道地方",
+    "station_code": "20432",
+    "station_name": "帯広",
+    "amedas_name": "帯広",
+    "lat": 42.921667,
+    "lng": 143.211667
+  },
+  {
+    "area_code": "11000",
+    "area_name": "宗谷地方",
+    "region_name": "北海道地方",
+    "station_code": "11016",
+    "station_name": "稚内",
+    "amedas_name": "稚内",
+    "lat": 45.415,
+    "lng": 141.678333
+  },
+  {
+    "area_code": "16030",
+    "area_name": "後志地方",
+    "region_name": "北海道地方",
+    "station_code": "16217",
+    "station_name": "倶知安",
+    "amedas_name": "倶知安",
+    "lat": 42.9,
+    "lng": 140.756667
+  },
+  {
+    "area_code": "15020",
+    "area_name": "日高地方",
+    "region_name": "北海道地方",
+    "station_code": "22327",
+    "station_name": "浦河",
+    "amedas_name": "浦河",
+    "lat": 42.161667,
+    "lng": 142.776667
+  },
+  {
+    "area_code": "14010",
+    "area_name": "根室地方",
+    "region_name": "北海道地方",
+    "station_code": "18273",
+    "station_name": "根室",
+    "amedas_name": "根室",
+    "lat": 43.33,
+    "lng": 145.585
+  },
+  {
+    "area_code": "17020",
+    "area_name": "檜山地方",
+    "region_name": "北海道地方",
+    "station_code": "24217",
+    "station_name": "江差",
+    "amedas_name": "江差",
+    "lat": 41.866667,
+    "lng": 140.123333
+  },
+  {
+    "area_code": "17010",
+    "area_name": "渡島地方",
+    "region_name": "北海道地方",
+    "station_code": "23232",
+    "station_name": "函館",
+    "amedas_name": "函館",
+    "lat": 41.816667,
+    "lng": 140.753333
+  },
+  {
+    "area_code": "12020",
+    "area_name": "留萌地方",
+    "region_name": "北海道地方",
+    "station_code": "13277",
+    "station_name": "留萌",
+    "amedas_name": "留萌",
+    "lat": 43.945,
+    "lng": 141.631667
+  },
+  {
+    "area_code": "16010",
+    "area_name": "石狩地方",
+    "region_name": "北海道地方",
+    "station_code": "14163",
+    "station_name": "札幌",
+    "amedas_name": "札幌",
+    "lat": 43.06,
+    "lng": 141.328333
+  },
+  {
+    "area_code": "16020",
+    "area_name": "空知地方",
+    "region_name": "北海道地方",
+    "station_code": "15356",
+    "station_name": "岩見沢",
+    "amedas_name": "岩見沢",
+    "lat": 43.211667,
+    "lng": 141.785
+  },
+  {
+    "area_code": "13030",
+    "area_name": "紋別地方",
+    "region_name": "北海道地方",
+    "station_code": "17112",
+    "station_name": "紋別",
+    "amedas_name": "紋別",
+    "lat": 44.345,
+    "lng": 143.355
+  },
+  {
+    "area_code": "13010",
+    "area_name": "網走地方",
+    "region_name": "北海道地方",
+    "station_code": "17341",
+    "station_name": "網走",
+    "amedas_name": "網走",
+    "lat": 44.016667,
+    "lng": 144.278333
+  },
+  {
+    "area_code": "15010",
+    "area_name": "胆振地方",
+    "region_name": "北海道地方",
+    "station_code": "21323",
+    "station_name": "室蘭",
+    "amedas_name": "室蘭",
+    "lat": 42.311667,
+    "lng": 140.975
+  },
+  {
+    "area_code": "14020",
+    "area_name": "釧路地方",
+    "region_name": "北海道地方",
+    "station_code": "19432",
+    "station_name": "釧路",
+    "amedas_name": "釧路",
+    "lat": 42.985,
+    "lng": 144.376667
+  },
+  {
+    "area_code": "160010",
+    "area_name": "富山県東部",
+    "region_name": "北陸地方",
+    "station_code": "55102",
+    "station_name": "富山",
+    "amedas_name": "富山",
+    "lat": 36.708333,
+    "lng": 137.201667
+  },
+  {
+    "area_code": "160020",
+    "area_name": "富山県西部",
+    "region_name": "北陸地方",
+    "station_code": "55091",
+    "station_name": "伏木",
+    "amedas_name": "伏木",
+    "lat": 36.791667,
+    "lng": 137.055
+  },
+  {
+    "area_code": "150030",
+    "area_name": "新潟県上越",
+    "region_name": "北陸地方",
+    "station_code": "54651",
+    "station_name": "高田",
+    "amedas_name": "高田",
+    "lat": 37.106667,
+    "lng": 138.246667
+  },
+  {
+    "area_code": "150010",
+    "area_name": "新潟県下越",
+    "region_name": "北陸地方",
+    "station_code": "54232",
+    "station_name": "新潟",
+    "amedas_name": "新潟",
+    "lat": 37.893333,
+    "lng": 139.018333
+  },
+  {
+    "area_code": "150020",
+    "area_name": "新潟県中越",
+    "region_name": "北陸地方",
+    "station_code": "54501",
+    "station_name": "長岡",
+    "amedas_name": "長岡",
+    "lat": 37.45,
+    "lng": 138.823333
+  },
+  {
+    "area_code": "150040",
+    "area_name": "新潟県佐渡",
+    "region_name": "北陸地方",
+    "station_code": "54157",
+    "station_name": "相川",
+    "amedas_name": "相川",
+    "lat": 38.028333,
+    "lng": 138.24
+  },
+  {
+    "area_code": "170010",
+    "area_name": "石川県加賀",
+    "region_name": "北陸地方",
+    "station_code": "56227",
+    "station_name": "金沢",
+    "amedas_name": "金沢",
+    "lat": 36.588333,
+    "lng": 136.633333
+  },
+  {
+    "area_code": "170020",
+    "area_name": "石川県能登",
+    "region_name": "北陸地方",
+    "station_code": "56052",
+    "station_name": "輪島",
+    "amedas_name": "輪島",
+    "lat": 37.39,
+    "lng": 136.895
+  },
+  {
+    "area_code": "180010",
+    "area_name": "福井県嶺北",
+    "region_name": "北陸地方",
+    "station_code": "57066",
+    "station_name": "福井",
+    "amedas_name": "福井",
+    "lat": 36.055,
+    "lng": 136.221667
+  },
+  {
+    "area_code": "180020",
+    "area_name": "福井県嶺南",
+    "region_name": "北陸地方",
+    "station_code": "57248",
+    "station_name": "敦賀",
+    "amedas_name": "敦賀",
+    "lat": 35.653333,
+    "lng": 136.061667
+  },
+  {
+    "area_code": "360010",
+    "area_name": "徳島県北部",
+    "region_name": "四国地方",
+    "station_code": "71106",
+    "station_name": "徳島",
+    "amedas_name": "徳島",
+    "lat": 34.066667,
+    "lng": 134.573333
+  },
+  {
+    "area_code": "360020",
+    "area_name": "徳島県南部",
+    "region_name": "四国地方",
+    "station_code": "71266",
+    "station_name": "日和佐",
+    "amedas_name": "日和佐",
+    "lat": 33.731667,
+    "lng": 134.538333
+  },
+  {
+    "area_code": "380010",
+    "area_name": "愛媛県中予",
+    "region_name": "四国地方",
+    "station_code": "73166",
+    "station_name": "松山",
+    "amedas_name": "松山",
+    "lat": 33.843333,
+    "lng": 132.776667
+  },
+  {
+    "area_code": "380030",
+    "area_name": "愛媛県南予",
+    "region_name": "四国地方",
+    "station_code": "73442",
+    "station_name": "宇和島",
+    "amedas_name": "宇和島",
+    "lat": 33.226667,
+    "lng": 132.551667
+  },
+  {
+    "area_code": "380020",
+    "area_name": "愛媛県東予",
+    "region_name": "四国地方",
+    "station_code": "73141",
+    "station_name": "新居浜",
+    "amedas_name": "新居浜",
+    "lat": 33.936667,
+    "lng": 133.338333
+  },
+  {
+    "area_code": "370000",
+    "area_name": "香川県",
+    "region_name": "四国地方",
+    "station_code": "72086",
+    "station_name": "高松",
+    "amedas_name": "高松",
+    "lat": 34.318333,
+    "lng": 134.053333
+  },
+  {
+    "area_code": "390010",
+    "area_name": "高知県中部",
+    "region_name": "四国地方",
+    "station_code": "74182",
+    "station_name": "高知",
+    "amedas_name": "高知",
+    "lat": 33.566667,
+    "lng": 133.548333
+  },
+  {
+    "area_code": "390020",
+    "area_name": "高知県東部",
+    "region_name": "四国地方",
+    "station_code": "74372",
+    "station_name": "室戸岬",
+    "amedas_name": "室戸岬",
+    "lat": 33.251667,
+    "lng": 134.176667
+  },
+  {
+    "area_code": "390030",
+    "area_name": "高知県西部",
+    "region_name": "四国地方",
+    "station_code": "74516",
+    "station_name": "清水",
+    "amedas_name": "清水",
+    "lat": 32.721667,
+    "lng": 133.01
+  },
+  {
+    "area_code": "40010",
+    "area_name": "宮城県東部",
+    "region_name": "東北地方",
+    "station_code": "34392",
+    "station_name": "仙台",
+    "amedas_name": "仙台",
+    "lat": 38.261667,
+    "lng": 140.896667
+  },
+  {
+    "area_code": "40020",
+    "area_name": "宮城県西部",
+    "region_name": "東北地方",
+    "station_code": "34461",
+    "station_name": "白石",
+    "amedas_name": "白石",
+    "lat": 38.015,
+    "lng": 140.611667
+  },
+  {
+    "area_code": "60030",
+    "area_name": "山形県庄内",
+    "region_name": "東北地方",
+    "station_code": "35052",
+    "station_name": "酒田",
+    "amedas_name": "酒田",
+    "lat": 38.908333,
+    "lng": 139.843333
+  },
+  {
+    "area_code": "60040",
+    "area_name": "山形県最上",
+    "region_name": "東北地方",
+    "station_code": "35162",
+    "station_name": "新庄",
+    "amedas_name": "新庄",
+    "lat": 38.756667,
+    "lng": 140.311667
+  },
+  {
+    "area_code": "60010",
+    "area_name": "山形県村山",
+    "region_name": "東北地方",
+    "station_code": "35426",
+    "station_name": "山形",
+    "amedas_name": "山形",
+    "lat": 38.255,
+    "lng": 140.345
+  },
+  {
+    "area_code": "60020",
+    "area_name": "山形県置賜",
+    "region_name": "東北地方",
+    "station_code": "35552",
+    "station_name": "米沢",
+    "amedas_name": "米沢",
+    "lat": 37.911667,
+    "lng": 140.143333
+  },
+  {
+    "area_code": "30010",
+    "area_name": "岩手県内陸",
+    "region_name": "東北地方",
+    "station_code": "33431",
+    "station_name": "盛岡",
+    "amedas_name": "盛岡",
+    "lat": 39.698333,
+    "lng": 141.165
+  },
+  {
+    "area_code": "30020",
+    "area_name": "岩手県沿岸北部",
+    "region_name": "東北地方",
+    "station_code": "33472",
+    "station_name": "宮古",
+    "amedas_name": "宮古",
+    "lat": 39.646667,
+    "lng": 141.965
+  },
+  {
+    "area_code": "30030",
+    "area_name": "岩手県沿岸南部",
+    "region_name": "東北地方",
+    "station_code": "33877",
+    "station_name": "大船渡",
+    "amedas_name": "大船渡",
+    "lat": 39.063333,
+    "lng": 141.713333
+  },
+  {
+    "area_code": "70010",
+    "area_name": "福島県中通り",
+    "region_name": "東北地方",
+    "station_code": "36127",
+    "station_name": "福島",
+    "amedas_name": "福島",
+    "lat": 37.758333,
+    "lng": 140.47
+  },
+  {
+    "area_code": "70030",
+    "area_name": "福島県会津",
+    "region_name": "東北地方",
+    "station_code": "36361",
+    "station_name": "若松",
+    "amedas_name": "若松",
+    "lat": 37.488333,
+    "lng": 139.91
+  },
+  {
+    "area_code": "70020",
+    "area_name": "福島県浜通り",
+    "region_name": "東北地方",
+    "station_code": "36846",
+    "station_name": "小名浜",
+    "amedas_name": "小名浜",
+    "lat": 36.946667,
+    "lng": 140.903333
+  },
+  {
+    "area_code": "50020",
+    "area_name": "秋田県内陸",
+    "region_name": "東北地方",
+    "station_code": "32596",
+    "station_name": "横手",
+    "amedas_name": "横手",
+    "lat": 39.32,
+    "lng": 140.555
+  },
+  {
+    "area_code": "50010",
+    "area_name": "秋田県沿岸",
+    "region_name": "東北地方",
+    "station_code": "32402",
+    "station_name": "秋田",
+    "amedas_name": "秋田",
+    "lat": 39.716667,
+    "lng": 140.098333
+  },
+  {
+    "area_code": "20030",
+    "area_name": "青森県三八上北",
+    "region_name": "東北地方",
+    "station_code": "31602",
+    "station_name": "八戸",
+    "amedas_name": "八戸",
+    "lat": 40.526667,
+    "lng": 141.521667
+  },
+  {
+    "area_code": "20020",
+    "area_name": "青森県下北",
+    "region_name": "東北地方",
+    "station_code": "31111",
+    "station_name": "むつ",
+    "amedas_name": "むつ",
+    "lat": 41.283333,
+    "lng": 141.21
+  },
+  {
+    "area_code": "20010",
+    "area_name": "青森県津軽",
+    "region_name": "東北地方",
+    "station_code": "31312",
+    "station_name": "青森",
+    "amedas_name": "青森",
+    "lat": 40.821667,
+    "lng": 140.768333
+  },
+  {
+    "area_code": "240010",
+    "area_name": "三重県北中部",
+    "region_name": "東海地方",
+    "station_code": "53133",
+    "station_name": "津",
+    "amedas_name": "津",
+    "lat": 34.733333,
+    "lng": 136.518333
+  },
+  {
+    "area_code": "240020",
+    "area_name": "三重県南部",
+    "region_name": "東海地方",
+    "station_code": "53378",
+    "station_name": "尾鷲",
+    "amedas_name": "尾鷲",
+    "lat": 34.068333,
+    "lng": 136.193333
+  },
+  {
+    "area_code": "210010",
+    "area_name": "岐阜県美濃地方",
+    "region_name": "東海地方",
+    "station_code": "52586",
+    "station_name": "岐阜",
+    "amedas_name": "岐阜",
+    "lat": 35.4,
+    "lng": 136.761667
+  },
+  {
+    "area_code": "210020",
+    "area_name": "岐阜県飛騨地方",
+    "region_name": "東海地方",
+    "station_code": "52146",
+    "station_name": "高山",
+    "amedas_name": "高山",
+    "lat": 36.155,
+    "lng": 137.253333
+  },
+  {
+    "area_code": "230020",
+    "area_name": "愛知県東部",
+    "region_name": "東海地方",
+    "station_code": "51331",
+    "station_name": "豊橋",
+    "amedas_name": "豊橋",
+    "lat": 34.75,
+    "lng": 137.341667
+  },
+  {
+    "area_code": "230010",
+    "area_name": "愛知県西部",
+    "region_name": "東海地方",
+    "station_code": "51106",
+    "station_name": "名古屋",
+    "amedas_name": "名古屋",
+    "lat": 35.166667,
+    "lng": 136.965
+  },
+  {
+    "area_code": "220010",
+    "area_name": "静岡県中部",
+    "region_name": "東海地方",
+    "station_code": "50331",
+    "station_name": "静岡",
+    "amedas_name": "静岡",
+    "lat": 34.975,
+    "lng": 138.403333
+  },
+  {
+    "area_code": "220020",
+    "area_name": "静岡県伊豆",
+    "region_name": "東海地方",
+    "station_code": "50281",
+    "station_name": "網代",
+    "amedas_name": "網代",
+    "lat": 35.045,
+    "lng": 139.091667
+  },
+  {
+    "area_code": "220030",
+    "area_name": "静岡県東部",
+    "region_name": "東海地方",
+    "station_code": "50206",
+    "station_name": "三島",
+    "amedas_name": "三島",
+    "lat": 35.113333,
+    "lng": 138.925
+  },
+  {
+    "area_code": "220040",
+    "area_name": "静岡県西部",
+    "region_name": "東海地方",
+    "station_code": "50456",
+    "station_name": "浜松",
+    "amedas_name": "浜松",
+    "lat": 34.753333,
+    "lng": 137.711667
+  },
+  {
+    "area_code": "474020",
+    "area_name": "与那国島地方",
+    "region_name": "沖縄地方",
+    "station_code": "94017",
+    "station_name": "与那国島",
+    "amedas_name": "与那国島",
+    "lat": 24.466667,
+    "lng": 123.01
+  },
+  {
+    "area_code": "472000",
+    "area_name": "大東島地方",
+    "region_name": "沖縄地方",
+    "station_code": "92011",
+    "station_name": "南大東島",
+    "amedas_name": "南大東",
+    "lat": 25.828333,
+    "lng": 131.228333
+  },
+  {
+    "area_code": "473000",
+    "area_name": "宮古島地方",
+    "region_name": "沖縄地方",
+    "station_code": "93041",
+    "station_name": "宮古島",
+    "amedas_name": "宮古島",
+    "lat": 24.793333,
+    "lng": 125.278333
+  },
+  {
+    "area_code": "471030",
+    "area_name": "沖縄本島地方久米島",
+    "region_name": "沖縄地方",
+    "station_code": "91146",
+    "station_name": "久米島",
+    "amedas_name": "久米島",
+    "lat": 26.336667,
+    "lng": 126.803333
+  },
+  {
+    "area_code": "471010",
+    "area_name": "沖縄本島地方本島中南部",
+    "region_name": "沖縄地方",
+    "station_code": "91197",
+    "station_name": "那覇",
+    "amedas_name": "那覇",
+    "lat": 26.206667,
+    "lng": 127.686667
+  },
+  {
+    "area_code": "471020",
+    "area_name": "沖縄本島地方本島北部",
+    "region_name": "沖縄地方",
+    "station_code": "91107",
+    "station_name": "名護",
+    "amedas_name": "名護",
+    "lat": 26.593333,
+    "lng": 127.965
+  },
+  {
+    "area_code": "474010",
+    "area_name": "石垣島地方",
+    "region_name": "沖縄地方",
+    "station_code": "94081",
+    "station_name": "石垣島",
+    "amedas_name": "石垣島",
+    "lat": 24.336667,
+    "lng": 124.163333
+  },
+  {
+    "area_code": "260020",
+    "area_name": "京都府北部",
+    "region_name": "近畿地方",
+    "station_code": "61111",
+    "station_name": "舞鶴",
+    "amedas_name": "舞鶴",
+    "lat": 35.45,
+    "lng": 135.316667
+  },
+  {
+    "area_code": "260010",
+    "area_name": "京都府南部",
+    "region_name": "近畿地方",
+    "station_code": "61286",
+    "station_name": "京都",
+    "amedas_name": "京都",
+    "lat": 35.013333,
+    "lng": 135.731667
+  },
+  {
+    "area_code": "280020",
+    "area_name": "兵庫県北部",
+    "region_name": "近畿地方",
+    "station_code": "63051",
+    "station_name": "豊岡",
+    "amedas_name": "豊岡",
+    "lat": 35.535,
+    "lng": 134.821667
+  },
+  {
+    "area_code": "280010",
+    "area_name": "兵庫県南部",
+    "region_name": "近畿地方",
+    "station_code": "63518",
+    "station_name": "神戸",
+    "amedas_name": "神戸",
+    "lat": 34.696667,
+    "lng": 135.211667
+  },
+  {
+    "area_code": "300010",
+    "area_name": "和歌山県北部",
+    "region_name": "近畿地方",
+    "station_code": "65042",
+    "station_name": "和歌山",
+    "amedas_name": "和歌山",
+    "lat": 34.228333,
+    "lng": 135.163333
+  },
+  {
+    "area_code": "300020",
+    "area_name": "和歌山県南部",
+    "region_name": "近畿地方",
+    "station_code": "65356",
+    "station_name": "潮岬",
+    "amedas_name": "潮岬",
+    "lat": 33.45,
+    "lng": 135.756667
+  },
+  {
+    "area_code": "270000",
+    "area_name": "大阪府",
+    "region_name": "近畿地方",
+    "station_code": "62078",
+    "station_name": "大阪",
+    "amedas_name": "大阪",
+    "lat": 34.681667,
+    "lng": 135.518333
+  },
+  {
+    "area_code": "290010",
+    "area_name": "奈良県北部",
+    "region_name": "近畿地方",
+    "station_code": "64036",
+    "station_name": "奈良",
+    "amedas_name": "奈良",
+    "lat": 34.673333,
+    "lng": 135.836667
+  },
+  {
+    "area_code": "290020",
+    "area_name": "奈良県南部",
+    "region_name": "近畿地方",
+    "station_code": "64227",
+    "station_name": "風屋",
+    "amedas_name": "風屋",
+    "lat": 34.045,
+    "lng": 135.786667
+  },
+  {
+    "area_code": "250020",
+    "area_name": "滋賀県北部",
+    "region_name": "近畿地方",
+    "station_code": "60131",
+    "station_name": "彦根",
+    "amedas_name": "彦根",
+    "lat": 35.275,
+    "lng": 136.243333
+  },
+  {
+    "area_code": "250010",
+    "area_name": "滋賀県南部",
+    "region_name": "近畿地方",
+    "station_code": "60216",
+    "station_name": "大津",
+    "amedas_name": "大津",
+    "lat": 34.991667,
+    "lng": 135.911667
+  },
+  {
+    "area_code": "120020",
+    "area_name": "千葉県北東部",
+    "region_name": "関東甲信地方",
+    "station_code": "45148",
+    "station_name": "銚子",
+    "amedas_name": "銚子",
+    "lat": 35.738333,
+    "lng": 140.856667
+  },
+  {
+    "area_code": "120010",
+    "area_name": "千葉県北西部",
+    "region_name": "関東甲信地方",
+    "station_code": "45212",
+    "station_name": "千葉",
+    "amedas_name": "千葉",
+    "lat": 35.601667,
+    "lng": 140.103333
+  },
+  {
+    "area_code": "120030",
+    "area_name": "千葉県南部",
+    "region_name": "関東甲信地方",
+    "station_code": "45401",
+    "station_name": "館山",
+    "amedas_name": "館山",
+    "lat": 34.986667,
+    "lng": 139.865
+  },
+  {
+    "area_code": "110020",
+    "area_name": "埼玉県北部",
+    "region_name": "関東甲信地方",
+    "station_code": "43056",
+    "station_name": "熊谷",
+    "amedas_name": "熊谷",
+    "lat": 36.15,
+    "lng": 139.38
+  },
+  {
+    "area_code": "110010",
+    "area_name": "埼玉県南部",
+    "region_name": "関東甲信地方",
+    "station_code": "43241",
+    "station_name": "さいたま",
+    "amedas_name": "さいたま",
+    "lat": 35.875,
+    "lng": 139.586667
+  },
+  {
+    "area_code": "110030",
+    "area_name": "埼玉県秩父地方",
+    "region_name": "関東甲信地方",
+    "station_code": "43156",
+    "station_name": "秩父",
+    "amedas_name": "秩父",
+    "lat": 35.99,
+    "lng": 139.073333
+  },
+  {
+    "area_code": "190010",
+    "area_name": "山梨県中・西部",
+    "region_name": "関東甲信地方",
+    "station_code": "49142",
+    "station_name": "甲府",
+    "amedas_name": "甲府",
+    "lat": 35.666667,
+    "lng": 138.553333
+  },
+  {
+    "area_code": "190020",
+    "area_name": "山梨県東部・富士五湖",
+    "region_name": "関東甲信地方",
+    "station_code": "49251",
+    "station_name": "河口湖",
+    "amedas_name": "河口湖",
+    "lat": 35.5,
+    "lng": 138.76
+  },
+  {
+    "area_code": "130020",
+    "area_name": "東京都伊豆諸島北部",
+    "region_name": "関東甲信地方",
+    "station_code": "44172",
+    "station_name": "大島",
+    "amedas_name": "大島",
+    "lat": 34.748333,
+    "lng": 139.361667
+  },
+  {
+    "area_code": "130030",
+    "area_name": "東京都伊豆諸島南部",
+    "region_name": "関東甲信地方",
+    "station_code": "44263",
+    "station_name": "八丈島",
+    "amedas_name": "八丈島",
+    "lat": 33.121667,
+    "lng": 139.778333
+  },
+  {
+    "area_code": "130040",
+    "area_name": "東京都小笠原諸島",
+    "region_name": "関東甲信地方",
+    "station_code": "44301",
+    "station_name": "父島",
+    "amedas_name": "父島",
+    "lat": 27.091667,
+    "lng": 142.19
+  },
+  {
+    "area_code": "130010",
+    "area_name": "東京都東京地方",
+    "region_name": "関東甲信地方",
+    "station_code": "44132",
+    "station_name": "東京",
+    "amedas_name": "東京",
+    "lat": 35.691667,
+    "lng": 139.75
+  },
+  {
+    "area_code": "90020",
+    "area_name": "栃木県北部",
+    "region_name": "関東甲信地方",
+    "station_code": "41141",
+    "station_name": "大田原",
+    "amedas_name": "大田原",
+    "lat": 36.84,
+    "lng": 140.035
+  },
+  {
+    "area_code": "90010",
+    "area_name": "栃木県南部",
+    "region_name": "関東甲信地方",
+    "station_code": "41277",
+    "station_name": "宇都宮",
+    "amedas_name": "宇都宮",
+    "lat": 36.548333,
+    "lng": 139.868333
+  },
+  {
+    "area_code": "140010",
+    "area_name": "神奈川県東部",
+    "region_name": "関東甲信地方",
+    "station_code": "46106",
+    "station_name": "横浜",
+    "amedas_name": "横浜",
+    "lat": 35.438333,
+    "lng": 139.651667
+  },
+  {
+    "area_code": "140020",
+    "area_name": "神奈川県西部",
+    "region_name": "関東甲信地方",
+    "station_code": "46166",
+    "station_name": "小田原",
+    "amedas_name": "小田原",
+    "lat": 35.276667,
+    "lng": 139.155
+  },
+  {
+    "area_code": "100020",
+    "area_name": "群馬県北部",
+    "region_name": "関東甲信地方",
+    "station_code": "42091",
+    "station_name": "みなかみ",
+    "amedas_name": "みなかみ",
+    "lat": 36.773333,
+    "lng": 138.965
+  },
+  {
+    "area_code": "100010",
+    "area_name": "群馬県南部",
+    "region_name": "関東甲信地方",
+    "station_code": "42251",
+    "station_name": "前橋",
+    "amedas_name": "前橋",
+    "lat": 36.405,
+    "lng": 139.06
+  },
+  {
+    "area_code": "80010",
+    "area_name": "茨城県北部",
+    "region_name": "関東甲信地方",
+    "station_code": "40201",
+    "station_name": "水戸",
+    "amedas_name": "水戸",
+    "lat": 36.38,
+    "lng": 140.466667
+  },
+  {
+    "area_code": "80020",
+    "area_name": "茨城県南部",
+    "region_name": "関東甲信地方",
+    "station_code": "40341",
+    "station_name": "土浦",
+    "amedas_name": "土浦",
+    "lat": 36.103333,
+    "lng": 140.22
+  },
+  {
+    "area_code": "200020",
+    "area_name": "長野県中部",
+    "region_name": "関東甲信地方",
+    "station_code": "48361",
+    "station_name": "松本",
+    "amedas_name": "松本",
+    "lat": 36.246667,
+    "lng": 137.97
+  },
+  {
+    "area_code": "200010",
+    "area_name": "長野県北部",
+    "region_name": "関東甲信地方",
+    "station_code": "48156",
+    "station_name": "長野",
+    "amedas_name": "長野",
+    "lat": 36.661667,
+    "lng": 138.191667
+  },
+  {
+    "area_code": "200030",
+    "area_name": "長野県南部",
+    "region_name": "関東甲信地方",
+    "station_code": "48767",
+    "station_name": "飯田",
+    "amedas_name": "飯田",
+    "lat": 35.523333,
+    "lng": 137.821667
+  }
+]
