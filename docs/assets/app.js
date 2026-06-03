@@ -3,9 +3,9 @@ const STORAGE_KEY = "jma-forecast-verification-state";
 const LANG_STORAGE_KEY = "jma-forecast-verification-lang";
 const TRANSLATIONS = {
   en: {
-    page_title: "Precipitation Verification Map",
+    page_title: "Precipitation Verification Map (Non-official)",
     page_notice:
-      "This site is for demonstration purposes. For disaster prevention decisions, refer to official JMA information. Accuracy may change over time and service may be discontinued without notice. It displays next-day precipitation occurrence in the prefectural weather forecasts issued at 05:00, 11:00, and 17:00 each day.",
+      "This site is for demonstration purposes. For disaster prevention decisions, refer to official JMA information. Accuracy may change over time and service may be discontinued without notice. It displays the next-day precipitation occurrence of the prefectural weather forecasts issued by JMA at 05:00, 11:00, and 17:00 each day.",
     label_month: "Month",
     label_time: "Time",
     label_metric: "Metric",
@@ -69,14 +69,15 @@ const TRANSLATIONS = {
     selected_capture: "Capture rate",
     selected_yes: "Precipitation-present accuracy",
     selected_no: "Precipitation-absent accuracy",
+    time_chart_title: "Issue time comparison",
     no_visible_areas: "No areas available for this selection.",
     footer:
       'Data Source &amp; Methodology: Weather Forecasts: <a href="https://agora.ex.nii.ac.jp/cps/weather/report/" target="_blank" rel="noreferrer">JMA Disaster Prevention Information XML History Database</a> (Provided by National Institute of Informatics) / Observations: JMA AMeDAS Daily Data / Processing: All verification scores are independently calculated by this system using the above data sources under <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noreferrer">CC BY 4.0</a>.',
   },
   ja: {
-    page_title: "降水有無 予報精度マップ",
+    page_title: "降水有無 予報精度マップ（非公式）",
     page_notice:
-      "本サイトはデモンストレーション目的であり、防災上の判断には気象庁の公式情報を参照してください。精度は随時変化し、予告なく提供を中止することがあります。毎日 5時、11時、17時に発表される「府県天気予報」における翌日の降水の有無を表示しています。",
+      "本サイトはデモンストレーション目的であり、防災上の判断には気象庁の公式情報を参照してください。精度は随時変化し、予告なく提供を中止することがあります。気象庁から毎日 5時、11時、17時に発表される「府県天気予報」に対する翌日の降水の有無の精度を表示しています。",
     label_month: "年月",
     label_time: "時刻",
     label_metric: "指標",
@@ -136,6 +137,7 @@ const TRANSLATIONS = {
     selected_capture: "捕捉率",
     selected_yes: "降水あり予報の適中率",
     selected_no: "降水なし予報の適中率",
+    time_chart_title: "発表時刻別の比較",
     no_visible_areas: "表示できる区域がありません。",
     footer:
       'Data Source &amp; Methodology: Weather Forecasts: <a href="https://agora.ex.nii.ac.jp/cps/weather/report/" target="_blank" rel="noreferrer">JMA Disaster Prevention Information XML History Database</a> (Provided by National Institute of Informatics) / Observations: JMA AMeDAS Daily Data / Processing: All verification scores are independently calculated by this system using the above data sources under <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noreferrer">CC BY 4.0</a>.',
@@ -245,6 +247,101 @@ function metricOrder(key) {
     precip_no_accuracy_pct: 5,
   };
   return order[key] ?? 999;
+}
+
+const DISPLAY_METRIC_KEYS = [
+  "accuracy_pct",
+  "miss_rate_pct",
+  "false_alarm_rate_pct",
+  "capture_rate_pct",
+  "precip_yes_accuracy_pct",
+  "precip_no_accuracy_pct",
+];
+
+const FIXED_REGION_AREAS = {
+  北海道地方: "石狩地方",
+  東北地方: "宮城県東部",
+  関東甲信地方: "東京都東京地方",
+  北陸地方: "新潟県下越",
+  東海地方: "愛知県西部",
+  近畿地方: "大阪府",
+  中国地方: "広島県南部",
+  四国地方: "愛媛県中予",
+  九州北部地方: "福岡県福岡地方",
+  九州南部地方: "鹿児島県薩摩地方",
+  沖縄地方: "沖縄本島地方本島中南部",
+};
+
+const DEFAULT_NATIONAL_AREA = "京都府南部";
+
+function renderMetricCard(key, value, tag = "div") {
+  const activeClass = key === state.metric ? " is-active" : "";
+  return `
+    <${tag} class="metric-cell${activeClass}" data-metric="${key}" role="button" tabindex="0" aria-pressed="${key === state.metric}">
+      <span>${metricLabel(key)}</span>
+      <strong>${formatPct(value)}</strong>
+    </${tag}>
+  `;
+}
+
+function selectMetric(key) {
+  if (!key || key === state.metric) {
+    return;
+  }
+  state.metric = key;
+  els.metricSelect.value = key;
+  saveStoredState();
+  renderAll(false);
+}
+
+function selectTime(time) {
+  if (!time || time === state.time) {
+    return;
+  }
+  state.time = time;
+  els.timeSelect.value = time;
+  saveStoredState();
+  renderAll(false);
+}
+
+function handleMetricCardAction(event) {
+  const card = event.target.closest("[data-metric]");
+  if (!card) {
+    return;
+  }
+  selectMetric(card.dataset.metric);
+}
+
+function handleMetricCardKeydown(event) {
+  if (event.key !== "Enter" && event.key !== " ") {
+    return;
+  }
+  const card = event.target.closest("[data-metric]");
+  if (!card) {
+    return;
+  }
+  event.preventDefault();
+  selectMetric(card.dataset.metric);
+}
+
+function handleTimeBarAction(event) {
+  const bar = event.target.closest("[data-time]");
+  if (!bar) {
+    return;
+  }
+  selectTime(bar.dataset.time);
+}
+
+function handleTimeBarKeydown(event) {
+  if (event.key !== "Enter" && event.key !== " ") {
+    return;
+  }
+  const bar = event.target.closest("[data-time]");
+  if (!bar) {
+    return;
+  }
+  event.preventDefault();
+  selectTime(bar.dataset.time);
 }
 
 function applyLanguage() {
@@ -388,9 +485,11 @@ function regionSortKey(regionName) {
 
 function setupMap() {
   state.map = L.map("map", {
-    zoomControl: true,
+    zoomControl: false,
     preferCanvas: true,
   }).setView([37.8, 137.8], 5);
+
+  L.control.zoom({ position: "topright" }).addTo(state.map);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 11,
@@ -430,6 +529,49 @@ function currentSummaryRow() {
   };
 }
 
+function issueTimeRows(level, predicate = () => true) {
+  const order = new Map(state.manifest.times.map((time, index) => [time, index]));
+  return state.summary[level]
+    .filter(predicate)
+    .sort((a, b) => (order.get(a.time) ?? 999) - (order.get(b.time) ?? 999));
+}
+
+function renderTimeChart(rows) {
+  const points = rows
+    .map((row) => ({ row, value: Number(row?.[state.metric]) }))
+    .filter((point) => !Number.isNaN(point.value));
+
+  if (!points.length) {
+    return "";
+  }
+
+  return `
+    <div class="time-chart">
+      <div class="time-chart-head">
+        <strong>${t("time_chart_title")}</strong>
+        <span>${metricLabel(state.metric)}</span>
+      </div>
+      <div class="time-bars" role="img" aria-label="${t("time_chart_title")} ${metricLabel(state.metric)}">
+        ${points
+          .map((point) => {
+            const label = state.lang === "ja" ? `${point.row.time}時` : `${point.row.time}:00`;
+            const height = Math.max(6, Math.min(100, point.value));
+            const fillColor = colorFor(point.value);
+            const activeClass = point.row.time === state.time ? " is-active" : "";
+            return `
+              <div class="time-bar${activeClass}" data-time="${point.row.time}" role="button" tabindex="0" aria-pressed="${point.row.time === state.time}">
+                <strong>${formatPct(point.value)}</strong>
+                <span class="bar-track"><span class="bar-fill" style="height:${height}%; background:${fillColor}"></span></span>
+                <em>${label}</em>
+              </div>
+            `;
+          })
+          .join("")}
+      </div>
+    </div>
+  `;
+}
+
 function areaLookup() {
   return new Map(state.areas.map((area) => [area.area_code, area]));
 }
@@ -447,27 +589,19 @@ function enrichedAreas() {
 }
 
 function renderLegend() {
-  const meta = metricMeta();
-  const labels = meta.higher_is_better
-    ? [
-        ["#087f5b", t("legend_high")],
-        ["#0b7285", t("legend_mid_high")],
-        ["#f08c00", t("legend_mid_low")],
-        ["#c92a2a", t("legend_low")],
-      ]
-    : [
-        ["#087f5b", t("legend_high")],
-        ["#0b7285", t("legend_mid_high")],
-        ["#f08c00", t("legend_mid_low")],
-        ["#c92a2a", t("legend_low")],
-      ];
+  const labels = [
+    ["#087f5b", t("legend_high")],
+    ["#0b7285", t("legend_mid_high")],
+    ["#f08c00", t("legend_mid_low")],
+    ["#c92a2a", t("legend_low")],
+  ];
   els.legend.innerHTML = [
     `<strong>${metricLabel(state.metric)}</strong>`,
-    `<div class="legend-row"><span class="swatch" style="background:#9aa6ab"></span><span>${t("data_nodata")}</span></div>`,
     ...labels.map(
       ([color, label]) =>
         `<div class="legend-row"><span class="swatch" style="background:${color}"></span><span>${label}</span></div>`,
     ),
+    `<div class="legend-row"><span class="swatch" style="background:#9aa6ab"></span><span>${t("data_nodata")}</span></div>`,
   ].join("");
 }
 
@@ -518,19 +652,15 @@ function renderOverall() {
     ? `${summary.metaLabel}: ${state.region} / ${state.month} / ${state.time}${timeSuffix} / ${metricLabel(state.metric)}`
     : `${state.month} / ${state.time}${timeSuffix} / ${metricLabel(state.metric)}`;
 
-  const metricKeys = [
-    "accuracy_pct",
-    "miss_rate_pct",
-    "false_alarm_rate_pct",
-    "capture_rate_pct",
-    "precip_yes_accuracy_pct",
-    "precip_no_accuracy_pct",
-  ];
-  els.overallMetrics.innerHTML = metricKeys
-    .map((key) => {
-      return `<div class="metric-cell"><span>${metricLabel(key)}</span><strong>${formatPct(row?.[key])}</strong></div>`;
-    })
+  els.overallMetrics.innerHTML = DISPLAY_METRIC_KEYS
+    .map((key) => renderMetricCard(key, row?.[key]))
     .join("");
+
+  const chartRows =
+    state.region === "all"
+      ? issueTimeRows("overall")
+      : issueTimeRows("regions", (item) => item.region_name === state.region);
+  els.overallMetrics.innerHTML += renderTimeChart(chartRows);
 }
 
 function sortedByMetric(rows) {
@@ -551,7 +681,7 @@ function renderRegions() {
   els.regionList.innerHTML = rows
     .map(
       (row) => `
-        <div class="rank-row" data-region="${row.region_name}">
+        <div class="rank-row${row.region_name === state.region ? " is-active" : ""}" data-region="${row.region_name}">
           <div class="row-name">
             <strong>${row.region_name}</strong>
             <span>${state.lang === "ja" ? "区域" : "Areas"}=${formatNumber(counts[row.region_name] ?? row.area_count)}</span>
@@ -564,7 +694,7 @@ function renderRegions() {
 
   els.regionList.querySelectorAll(".rank-row").forEach((row) => {
     row.addEventListener("click", () => {
-      state.region = row.dataset.region;
+      state.region = state.region === row.dataset.region ? "all" : row.dataset.region;
       els.regionSelect.value = state.region;
       state.selectedAreaCode = null;
       renderAll();
@@ -577,6 +707,20 @@ function selectedAreaRow(rows) {
     const selected = rows.find((row) => row.area_code === state.selectedAreaCode);
     if (selected) return selected;
   }
+
+  if (state.region !== "all") {
+    const fixedAreaName = FIXED_REGION_AREAS[state.region];
+    if (fixedAreaName) {
+      const fixed = rows.find((row) => row.area_name === fixedAreaName);
+      if (fixed) return fixed;
+    }
+  }
+
+  if (state.region === "all") {
+    const defaultArea = rows.find((row) => row.area_name === DEFAULT_NATIONAL_AREA);
+    if (defaultArea) return defaultArea;
+  }
+
   return sortedByMetric(rows)[0];
 }
 
@@ -585,19 +729,16 @@ function renderSelectedArea(row, rows) {
     els.selectedArea.innerHTML = `<p>${t("no_visible_areas")}</p>`;
     return;
   }
+  const chartRows = issueTimeRows("areas", (item) => item.area_code === row.area_code);
   els.selectedArea.innerHTML = `
     <div>
       <h3>${row.area_name}</h3>
       <p>${row.region_name} / ${t("selected_rep")}: ${row.station_name}</p>
     </div>
     <dl>
-      <div><dt>${metricLabel(state.metric)}</dt><dd>${formatPct(row[state.metric])}</dd></div>
-      <div><dt>${t("selected_miss")}</dt><dd>${formatPct(row.miss_rate_pct)}</dd></div>
-      <div><dt>${t("selected_false")}</dt><dd>${formatPct(row.false_alarm_rate_pct)}</dd></div>
-      <div><dt>${t("selected_capture")}</dt><dd>${formatPct(row.capture_rate_pct)}</dd></div>
-      <div><dt>${t("selected_yes")}</dt><dd>${formatPct(row.precip_yes_accuracy_pct)}</dd></div>
-      <div><dt>${t("selected_no")}</dt><dd>${formatPct(row.precip_no_accuracy_pct)}</dd></div>
+      ${DISPLAY_METRIC_KEYS.map((key) => renderMetricCard(key, row[key])).join("")}
     </dl>
+    ${renderTimeChart(chartRows)}
   `;
 }
 
@@ -678,15 +819,11 @@ function attachEvents() {
   });
 
   els.timeSelect.addEventListener("change", () => {
-    state.time = els.timeSelect.value;
-    saveStoredState();
-    renderAll(false);
+    selectTime(els.timeSelect.value);
   });
 
   els.metricSelect.addEventListener("change", () => {
-    state.metric = els.metricSelect.value;
-    saveStoredState();
-    renderAll(false);
+    selectMetric(els.metricSelect.value);
   });
 
   els.regionSelect.addEventListener("change", () => {
@@ -694,6 +831,15 @@ function attachEvents() {
     saveStoredState();
     renderAll();
   });
+
+  els.overallMetrics.addEventListener("click", handleMetricCardAction);
+  els.overallMetrics.addEventListener("keydown", handleMetricCardKeydown);
+  els.overallMetrics.addEventListener("click", handleTimeBarAction);
+  els.overallMetrics.addEventListener("keydown", handleTimeBarKeydown);
+  els.selectedArea.addEventListener("click", handleMetricCardAction);
+  els.selectedArea.addEventListener("keydown", handleMetricCardKeydown);
+  els.selectedArea.addEventListener("click", handleTimeBarAction);
+  els.selectedArea.addEventListener("keydown", handleTimeBarKeydown);
 }
 
 async function init() {
