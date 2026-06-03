@@ -226,6 +226,18 @@ function saveStoredState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
 }
 
+function isMobileLayout() {
+  return window.matchMedia("(max-width: 560px)").matches;
+}
+
+function collapseSelectedAreaForMobile() {
+  if (!isMobileLayout()) {
+    return;
+  }
+  state.selectedAreaCollapsed = true;
+  state.selectedAreaExpanded = false;
+}
+
 function openMethodologyModal() {
   els.methodologyModal.hidden = false;
   document.body.classList.add("modal-open");
@@ -722,6 +734,7 @@ function renderRegions() {
       els.regionSelect.value = state.region;
       els.mobileRegionSelect.value = state.region;
       state.selectedAreaCode = null;
+      collapseSelectedAreaForMobile();
       renderAll();
     });
   });
@@ -732,6 +745,7 @@ function selectRegion(region) {
   els.regionSelect.value = region;
   els.mobileRegionSelect.value = region;
   state.selectedAreaCode = null;
+  collapseSelectedAreaForMobile();
   saveStoredState();
   renderAll();
 }
@@ -893,7 +907,7 @@ function attachEvents() {
   els.selectedArea.addEventListener("click", handleTimeBarAction);
   els.selectedArea.addEventListener("keydown", handleTimeBarKeydown);
   els.selectedArea.addEventListener("click", (event) => {
-    if (!event.target.closest(".selected-toggle")) {
+    if (!event.target.closest(".selected-area-head") || event.target.closest(".selected-zoom")) {
       return;
     }
     state.selectedAreaCollapsed = !state.selectedAreaCollapsed;
@@ -927,6 +941,7 @@ async function init() {
   setupMap();
   attachEvents();
   await loadMonth(state.month);
+  collapseSelectedAreaForMobile();
   applyLanguage();
   renderAll();
 }

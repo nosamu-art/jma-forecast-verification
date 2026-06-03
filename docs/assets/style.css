@@ -577,6 +577,7 @@ select {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 10px;
   align-items: start;
+  cursor: pointer;
 }
 
 .selected-toggle {
@@ -592,6 +593,7 @@ select {
 }
 
 .selected-zoom {
+  display: none;
   width: 30px;
   height: 30px;
   font-size: 15px;
@@ -830,6 +832,10 @@ body.modal-open {
 
   .legend.is-open {
     top: 52px;
+  }
+
+  .selected-zoom {
+    display: inline-flex;
   }
 
   .map-detail {
